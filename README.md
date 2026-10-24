@@ -4,9 +4,9 @@ A Flutter app skeleton with the plumbing most apps need and none of the domain c
 
 ## Screenshots
 
-![Home, empty state and error state (Flutter)](docs/screenshots/overview.png)
+![Starter App home screen on an Android emulator](docs/screenshots/launch.png)
 
-_These images are illustrative mockups rendered from this repository's documented screens and API shapes, not captures of a running build. Regenerate or replace them with real captures once the app is running._
+_A real capture: the app's home screen with the empty-state placeholder on an Android emulator, produced by the manual `Screenshots` workflow (`.github/workflows/screenshots.yml`). It is a debug build, hence the corner banner._
 
 ## What is included
 
