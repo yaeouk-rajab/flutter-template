@@ -2,6 +2,12 @@
 
 A Flutter app skeleton with the plumbing most apps need and none of the domain code.
 
+## Screenshots
+
+![Home, empty state and error state (Flutter)](docs/screenshots/overview.png)
+
+_These images are illustrative mockups rendered from this repository's documented screens and API shapes, not captures of a running build. Regenerate or replace them with real captures once the app is running._
+
 ## What is included
 
 - `lib/config/env.dart`: build-time config via `--dart-define=API_BASE_URL=...`.
