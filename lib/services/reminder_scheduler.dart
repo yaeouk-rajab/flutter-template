@@ -29,7 +29,10 @@ class ReminderScheduler {
     const androidInit = AndroidInitializationSettings('@mipmap/ic_launcher');
     const iosInit = DarwinInitializationSettings();
     await _plugin.initialize(
-      const InitializationSettings(android: androidInit, iOS: iosInit),
+      settings: const InitializationSettings(
+        android: androidInit,
+        iOS: iosInit,
+      ),
     );
   }
 
@@ -64,11 +67,11 @@ class ReminderScheduler {
         ?.requestNotificationsPermission();
 
     await _plugin.zonedSchedule(
-      notificationId(reminderId),
-      title,
-      body,
-      tz.TZDateTime.from(fireAt, tz.local),
-      NotificationDetails(
+      id: notificationId(reminderId),
+      title: title,
+      body: body,
+      scheduledDate: tz.TZDateTime.from(fireAt, tz.local),
+      notificationDetails: NotificationDetails(
         android: _androidDetails,
         iOS: const DarwinNotificationDetails(),
       ),
@@ -79,12 +82,10 @@ class ReminderScheduler {
       // up to about an hour. If you need exact timing, add the permission
       // and its prompt flow.
       androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
-      uiLocalNotificationDateInterpretation:
-          UILocalNotificationDateInterpretation.absoluteTime,
     );
     return notificationsEnabled != false;
   }
 
   Future<void> cancelReminder(String reminderId) =>
-      _plugin.cancel(notificationId(reminderId));
+      _plugin.cancel(id: notificationId(reminderId));
 }
