@@ -9,6 +9,13 @@ updates:
     groups:
       minor-and-patch:
         update-types: ["minor", "patch"]
+    ignore:
+      # 18.x -> 22.x renames the plugin's API to named parameters and changes
+      # the native build; analyze fails until reminder_scheduler.dart and the
+      # Android build are migrated together. Do that as a deliberate change,
+      # not through a grouped Dependabot PR.
+      - dependency-name: "flutter_local_notifications"
+        update-types: ["version-update:semver-major"]
   # Android Gradle build (android/ and android/app)
   - package-ecosystem: gradle
     directory: "/android"
